@@ -35,15 +35,12 @@ text_out_status(struct Output *out, FILE *fp, time_t timestamp,
     UNUSEDPARM(out);
 
 
-    fprintf(fp, "%s %s %u %u.%u.%u.%u %u\n",
-        status_string(status),
-        name_from_ip_proto(ip_proto),
-        port,
+    fprintf(fp, "%u.%u.%u.%u:%u\n",
         (ip>>24)&0xFF,
         (ip>>16)&0xFF,
         (ip>> 8)&0xFF,
         (ip>> 0)&0xFF,
-        (unsigned)timestamp
+        port
         );
 }
 
